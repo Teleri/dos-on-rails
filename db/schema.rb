@@ -10,10 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_163841) do
+ActiveRecord::Schema.define(version: 2021_03_09_171505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "type"
+    t.bigint "segment_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["segment_id"], name: "index_bookings_on_segment_id"
+  end
+
+  create_table "destination_offices", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "city_name"
+    t.string "city_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "sales_offices", force: :cascade do |t|
+    t.string "name"
+    t.string "country"
+    t.string "city_name"
+    t.string "city_code"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "segments", force: :cascade do |t|
+    t.string "city_name"
+    t.date "segment_date"
+    t.bigint "tour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tour_id"], name: "index_segments_on_tour_id"
+  end
+
+  create_table "tour_attachments", force: :cascade do |t|
+    t.string "type"
+    t.string "file"
+    t.bigint "tour_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tour_id"], name: "index_tour_attachments_on_tour_id"
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.string "reference_number"
+    t.string "tour_name"
+    t.date "departure_date"
+    t.date "termination_date"
+    t.string "status"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_tours_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +83,8 @@ ActiveRecord::Schema.define(version: 2021_03_09_163841) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "segments"
+  add_foreign_key "segments", "tours"
+  add_foreign_key "tour_attachments", "tours"
+  add_foreign_key "tours", "users"
 end
