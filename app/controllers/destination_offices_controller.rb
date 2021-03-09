@@ -1,0 +1,2 @@
+class DestinationOfficesController < ApplicationController
+end
