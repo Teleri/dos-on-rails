@@ -1,0 +1,2 @@
+class TourAttachment < ApplicationRecord
+end

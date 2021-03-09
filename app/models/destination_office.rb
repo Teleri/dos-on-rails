@@ -1,0 +1,2 @@
+class DestinationOffice < ApplicationRecord
+end

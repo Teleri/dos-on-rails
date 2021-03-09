@@ -1,0 +1,2 @@
+class SalesOffice < ApplicationRecord
+end
