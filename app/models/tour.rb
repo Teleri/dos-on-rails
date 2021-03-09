@@ -1,5 +1,5 @@
 class Tour < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
   has_many :segments
   has_one :destination_office
   has_one :sales_office
