@@ -1,0 +1,46 @@
+class ToursController < ApplicationController
+  before_action :find_tour, only: [:show, :edit, :update, :destroy]
+
+  def index
+    @tours = Tour.all
+  end
+
+  def show
+    # code
+  end
+
+  def new
+    @tour = Tour.new
+  end
+
+  def create
+    @tour = Tour.new(tour_params)
+    if @tour.save
+      redirect_to @tour
+    else
+      render 'new'
+    end
+  end
+
+  def edit
+    # code
+  end
+
+  def update
+    if @tour.update(tour_params)
+      redirect_to @tour
+    else
+      render 'edit'
+    end
+  end
+
+  private
+
+  def tour_params
+    params.require(:tour).permit(:reference_number, :tour_name, :departure_date, :termination_date, :status, :user_id)
+  end
+
+  def find_tour
+    @tour = Tour.find(params[:id])
+  end
+end
