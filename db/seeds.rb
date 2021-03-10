@@ -1,3 +1,5 @@
+require 'faker'
+
 TourAttachment.delete_all
 Booking.delete_all
 Segment.delete_all
@@ -8,8 +10,20 @@ User.delete_all
 
 user = User.create(email: 'test@test.com', password: 'test@test.com')
 puts 'User created'
-tour = Tour.create(reference_number: 'ABCD123456789', tour_name: 'Tour Name', departure_date: '2021-12-01', termination_date: '2021-12-31', status: 'GOH', user_id: 1)
-puts 'Tour created'
+
+10.times do
+  Tour.create(
+    reference_number: Faker::Number.number(digits: 10),
+    tour_name: 'Tour Name',
+    departure_date: Faker::Date.between(from: '2020-01-01', to: '2021-12-31'),
+    termination_date: Faker::Date.between(from: '2020-01-01', to: '2021-12-31'),
+    status: ['INQ', 'GOH', 'MAT', 'CXL'].sample,
+    user_id: 1
+  )
+end
+
+puts 'Tours created'
+
 destination_office = DestinationOffice.create(name: 'London', country: 'United Kingdom', city_name: 'London', city_code: 'LON')
 puts 'Destination Office created'
 sales_office = SalesOffice.create(name: 'Tokyo', country: 'Japan', city_name: 'Tokyo', city_code: 'TYO')
