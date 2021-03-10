@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 # My gems
 gem 'devise'
 gem 'simple_form'
+gem 'faker'
 
 
 # Use Active Storage variant
