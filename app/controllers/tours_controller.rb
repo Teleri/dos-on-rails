@@ -34,6 +34,14 @@ class ToursController < ApplicationController
     end
   end
 
+  def destroy
+    if @tour.destroy
+      redirect_to 'root'
+    else
+      redirect_to @tour
+    end
+  end
+
   private
 
   def tour_params

@@ -1,0 +1,14 @@
+<% @tours.each do |tour| %>
+  Reference Number: <%= link_to tour.reference_number, tour_path(tour) %>
+  <br>
+  Tour Name: <%= tour.tour_name %>
+  <br>
+  Deptarture Date: <%= tour.departure_date %>
+  <br>
+  Termination Date: <%= tour.termination_date %>
+  <br>
+  Status: <%= tour.status %>
+  <br>
+  ----------------------
+  <br>
+<% end %>
