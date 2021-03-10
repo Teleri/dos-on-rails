@@ -1,3 +1,6 @@
+<%= link_to "New Tour", new_tour_path %>
+<br>
+<br>
 <% @tours.each do |tour| %>
   Reference Number: <%= link_to tour.reference_number, tour_path(tour) %>
   <br>
