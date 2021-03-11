@@ -1,0 +1,9 @@
+<% @segments.each do |segment| %>
+  Segment Date: <%= segment.segment_date %>
+  <br>
+  Tour ID: <%= segment.tour_id %>
+  <br>
+  Destination Office ID: <%= segment.destination_office_id %>
+  <br>
+<% end %>
+<%= link_to "Back", :back %>

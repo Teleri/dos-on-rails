@@ -7,7 +7,6 @@ class SegmentsController < ApplicationController
   end
 
   def show
-    # code
   end
 
   def new
@@ -25,7 +24,6 @@ class SegmentsController < ApplicationController
   end
 
   def edit
-    # code
   end
 
   def update
