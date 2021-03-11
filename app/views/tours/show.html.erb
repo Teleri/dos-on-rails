@@ -14,8 +14,6 @@ Segments: <%= @tour.segments.count %>
 <br>
 <%= link_to "Segment List", tour_segments_path(@tour, @segment) %>
 <br>
-<%= render 'segments/index', tour: @tour, segment: @segments %>
-<br>
 <%= link_to "Edit", edit_tour_path(@tour) %>
 <br>
 <%= link_to "Back", root_path %>

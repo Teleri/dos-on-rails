@@ -8,8 +8,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    # @segment = Segment.new
-    @segment = Segment.where(tour_id: @tour)
+    @segment = Segment.new
   end
 
   def new
