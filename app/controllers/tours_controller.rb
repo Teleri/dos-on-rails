@@ -6,7 +6,7 @@ class ToursController < ApplicationController
   end
 
   def show
-    # code
+    @segment = Segment.new
   end
 
   def new

@@ -8,4 +8,10 @@ Termination Date: <%= @tour.termination_date %>
 <br>
 Status: <%= @tour.status %>
 <br>
+Segments: <%= @tour.segments.count %>
+<br>
+<%= link_to "New Segment", new_tour_segment_path(@tour, @segment) %>
+<br>
+<%= link_to "Edit", edit_tour_path(@tour) %>
+<br>
 <%= link_to "Back", root_path %>
