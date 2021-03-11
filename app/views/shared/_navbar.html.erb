@@ -1,0 +1,32 @@
+<div class="navbar-container">
+  <div class="navbar">
+    <% if user_signed_in? %>
+      <div class="signed-in-links">
+        <div class="home-page-link">
+          <%= link_to "Home Page", root_path %>
+        </div>
+        <div class="logout-link">
+          <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+        </div>
+      <div class="new-tour-link">
+        <%= link_to "New Tour", new_tour_path %>
+      </div>
+      </div>
+    <% else %>
+      <div class="signed-out-links">
+        <div class="home-page-link">
+          <%= link_to "Home Page", root_path %>
+        </div>
+        <div class="log-in-link">
+          <%= link_to "Log in", new_user_session_path %>
+        </div>
+        <div class="register-link">
+          <%= link_to "Register", new_user_registration_path %>
+        </div>
+      </div>
+      <div class="new-tour-link">
+        <%= link_to "New Tour", new_tour_path %>
+      </div>
+    <% end %>
+  </div>
+</div>

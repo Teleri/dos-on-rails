@@ -1,19 +1,28 @@
-<%= link_to "New Tour", new_tour_path %>
-<br>
-<br>
-<% @tours.each do |tour| %>
-  Reference Number: <%= link_to tour.reference_number, tour_path(tour) %>
-  <br>
-  Tour Name: <%= tour.tour_name %>
-  <br>
-  Deptarture Date: <%= tour.departure_date %>
-  <br>
-  Termination Date: <%= tour.termination_date %>
-  <br>
-  Status: <%= tour.status %>
-  <br>
-  PIC: <%= current_user.email %>
-  <br>
-  ----------------------
-  <br>
-<% end %>
+<div class="tours-container">
+  <div class="tour-list">
+    <% @tours.each do |tour| %>
+      <%= link_to tour_path(tour) do %>
+        <div class="tour-details">
+          <div class="ref-no">
+            Reference Number: <%= tour.reference_number %>
+          </div>
+          <div class="tour-name">
+            Tour Name: <%= tour.tour_name %>
+          </div>
+          <div class="dept-date">
+            Deptarture Date: <%= tour.departure_date %>
+          </div>
+          <div class="term-date">
+            Termination Date: <%= tour.termination_date %>
+          </div>
+          <div class="tour-status">
+            Status: <%= tour.status %>
+          </div>
+          <div class="tour-pic">
+            PIC: <%= current_user.email %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
