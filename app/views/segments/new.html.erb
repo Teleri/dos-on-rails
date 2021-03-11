@@ -1,0 +1,6 @@
+<%= simple_form_for [@tour, @segment] do |f| %>
+  <%= f.input :segment_date %>
+  <%= f.input :destination_office_id %>
+  <%= f.button :submit %>
+<% end %>
+<%= @segment.destination_office_id %>
