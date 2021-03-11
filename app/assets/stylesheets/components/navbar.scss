@@ -1,0 +1,30 @@
+.navbar-container {
+  background-color: #b2b2b2;
+  padding: 15px 0;
+}
+
+.navbar {
+  margin: auto;
+}
+
+.navbar a {
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #000000;
+  font-family: "Philosopher", sans-serif;
+  font-weight: bold;
+  font-size: 15px;
+  margin: 0 2px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.signed-in-links,
+.signed-out-links {
+  display: flex;
+}

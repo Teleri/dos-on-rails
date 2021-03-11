@@ -1,0 +1,29 @@
+.view-options {
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.tours-view,
+.destination-offices-view,
+.sales-offices-view {
+  align-items: center;
+  display: flex;
+  height: 500px;
+  justify-content: center;
+}
+
+.view-options a {
+  border: 1px solid black;
+  border-radius: 3px;
+  color: #000000;
+  font-family: "Philosopher", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 50px;
+  text-decoration: none;
+}
+
+.view-options a:hover {
+  background-color: #000000;
+  color: #ffffff;
+}
