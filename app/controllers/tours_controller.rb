@@ -1,12 +1,15 @@
 class ToursController < ApplicationController
   before_action :find_tour, only: [:show, :edit, :update, :destroy]
+  # before_action :find_tour_attachment, only: [:show]
+  # before_action :find_segment, only: [:show]
 
   def index
     @tours = Tour.all
   end
 
   def show
-    @segment = Segment.new
+    # @segment = Segment.new
+    @segment = Segment.where(tour_id: @tour)
   end
 
   def new
@@ -50,5 +53,13 @@ class ToursController < ApplicationController
 
   def find_tour
     @tour = Tour.find(params[:id])
+  end
+
+  def find_tour_attachment
+    @tour_attachment = TourAttachment.find(params[:id])
+  end
+
+  def find_segment
+    @segment = Segment.find(params[:segment_id])
   end
 end
